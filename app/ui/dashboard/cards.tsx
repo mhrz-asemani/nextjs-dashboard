@@ -16,14 +16,15 @@ const iconMap = {
 
 export default async function CardWrapper() {
   // setTimeout is used to simulate a delay for loading cards
-  await new Promise((res) => setTimeout(res, 2000));
-
+  // await new Promise((res) => setTimeout(res, 4000));
+  // console.log("CardWrapper fetching");
   const {
     numberOfInvoices,
     numberOfCustomers,
     totalPaidInvoices,
     totalPendingInvoices,
   } = await fetchCardData();
+  // console.log("CardWrapper fetched");
   return (
     <>
       {/* NOTE: Uncomment this code in Chapter 9 */}

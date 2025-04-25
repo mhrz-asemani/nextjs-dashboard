@@ -6,7 +6,9 @@ import { LatestInvoice } from "@/app/lib/definitions";
 import { fetchLatestInvoices } from "@/app/lib/data";
 
 export default async function LatestInvoices() {
+  // console.log("LatestInvoices fetching");
   const latestInvoices: LatestInvoice[] = await fetchLatestInvoices();
+  // console.log("LatestInvoices fetched");
 
   return (
     <div className="flex w-full flex-col md:col-span-4">
