@@ -1,3 +1,10 @@
+/* 
+this component re-renders on every keystroke.
+It is bacause we are using replace to update the URL. this triggers a navigation event in next.js.
+When the query string changes, useSearchParams detects the change and provides the updated query parameters,
+ which can lead to a re-render.
+*/
+
 "use client";
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
@@ -10,7 +17,6 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-
   // debounce the function to avoid too many re-renders(prevents server requests on every keystroke).
   // debounce: wait for 300ms after the user stops typing before calling the function.
   const handleSearch = useDebouncedCallback((term: string) => {
@@ -18,6 +24,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     // like set, get, delete, etc.
     // It takes a string or an object as an argument and returns a URLSearchParams object.
     const params = new URLSearchParams(searchParams);
+    params.set("page", "1");
     if (term) {
       params.set("query", term);
     } else {
@@ -25,7 +32,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     }
     // replace the current URL with the new one.
     replace(`${pathname}?${params.toString()}`);
-    console.log(params.toString());
+    // console.log("params:" + searchParams.get("query")?.toString());
   }, 300);
 
   return (
