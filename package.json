@@ -4,7 +4,8 @@
     "build": "next build",
     "dev": "next dev --turbopack",
     "start": "next start",
-    "preinstall": "echo '{\"allowedBuildScripts\":[\"bcrypt\"]}' > .pnpm.cjs"
+    "preinstall": "echo '{\"allowedBuildScripts\":[\"bcrypt\"]}' > .pnpm.cjs",
+    "lint": "next lint"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
