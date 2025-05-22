@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { lusitana } from "@/app/ui/fonts";
 import {
   AtSymbolIcon,
