@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // already, I set this option to "true" due to Vercel eslint errors during build.
   eslint: {
     ignoreDuringBuilds: true,
   },
