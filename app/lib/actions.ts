@@ -35,6 +35,7 @@ export type State = {
 };
 
 const CreateInvoice = FormSchema.omit({ id: true, date: true });
+const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
 export async function createInvoice(prevState: State, formData: FormData) {
   // Validate form fields using Zod
@@ -69,7 +70,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
   `;
   } catch (error) {
     // If a database error occurs, return a more specific error.
-    console.log(error);
+    // console.log(error);
     return {
       message: "Database Error: Failed to Create Invoice.",
     };
@@ -79,9 +80,6 @@ export async function createInvoice(prevState: State, formData: FormData) {
   revalidatePath("/dashboard/invoices");
   redirect("/dashboard/invoices");
 }
-
-// Use Zod to update the expected types
-const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
 export async function updateInvoice(
   id: string,

@@ -7,9 +7,9 @@ import {
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { Button } from "./button";
-import { authenticate } from "../lib/actions";
+import { Button } from "@/app/ui/button";
 import { useActionState } from "react";
+import { authenticate } from "@/app/lib/actions";
 import { useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
@@ -21,7 +21,7 @@ export default function LoginForm() {
   );
 
   return (
-    <form className="space-y-3" action={formAction}>
+    <form action={formAction} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
           Please log in to continue.
@@ -71,8 +71,11 @@ export default function LoginForm() {
         <Button className="mt-4 w-full" aria-disabled={isPending}>
           Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
         </Button>
-        <div className="flex h-8 items-end space-x-1">
-          {/* Add form errors here */}
+        <div
+          className="flex h-8 items-end space-x-1"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           {errorMessage && (
             <>
               <ExclamationCircleIcon className="h-5 w-5 text-red-500" />
