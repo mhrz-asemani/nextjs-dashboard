@@ -136,6 +136,7 @@ export async function authenticate(
   formData: FormData
 ) {
   try {
+    // "credentials": is the BuiltIn provider type for NextAuth.js
     await signIn("credentials", formData);
   } catch (error) {
     if (error instanceof AuthError) {

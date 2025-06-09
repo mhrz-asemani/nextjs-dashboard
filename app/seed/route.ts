@@ -1,3 +1,10 @@
+/**
+ * A notice about the code:
+ * This code is intended to be run in a server environment where the database is accessible.
+ * While seeding, Creating table for users, ran into an error, so that there was no rows in the users table.
+ * I'v fount the solution to this problem, so I re-called the seed function multiple times, and it worked.
+ */
+
 import bcrypt from "bcrypt";
 import postgres from "postgres";
 import { invoices, customers, revenue, users } from "../lib/placeholder-data";
