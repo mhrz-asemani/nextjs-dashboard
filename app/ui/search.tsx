@@ -31,6 +31,8 @@ export default function Search({ placeholder }: { placeholder: string }) {
       params.delete("query");
     }
     // replace the current URL with the new one.
+    // params.toString(): translates the user input into a URL-friendly format.
+    // replace: The URL is updated without reloading the page, thanks to Next.js's client-side navigation
     replace(`${pathname}?${params.toString()}`);
     // console.log("params:" + searchParams.get("query")?.toString());
   }, 300);

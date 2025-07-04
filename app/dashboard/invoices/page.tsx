@@ -1,3 +1,14 @@
+/**
+ * The client-side Search, updates URL search params.
+ * Next.js re-renders Page(only logics) then receives the updated search params as props.
+ * Then fetches the searchParams to get the query and page number.
+ * The server-side Table component fetches the invoices based on the query and page number.
+ * 
+ * Data Flow:
+ *  User types → "Search" updates URL → Next.js re-renders page → 
+    New searchParams prop → "Table" refetches filtered data
+ */
+
 import Pagination from "@/app/ui/invoices/pagination";
 import Search from "@/app/ui/search";
 import Table from "@/app/ui/invoices/table";
